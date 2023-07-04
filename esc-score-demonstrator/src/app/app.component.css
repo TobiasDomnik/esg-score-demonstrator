@@ -1,0 +1,45 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    padding-left: 2em;
+    padding-right: 2em;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+}
+
+.headline {
+    font-size: 18px;
+}
+
+.content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    flex-direction: column;
+}
+
+.parameter {
+    margin-top: 1em;
+}
+
+.label {
+    margin-bottom: 0.5em;
+}
+
+.separator {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.resultsBlock {
+    margin-top: 3em;
+}
+
+
+
