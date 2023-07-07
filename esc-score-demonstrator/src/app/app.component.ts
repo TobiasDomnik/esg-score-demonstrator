@@ -48,6 +48,9 @@ export class AppComponent implements OnInit {
     let result = 0;
 
 
+    // TO DO Berechnung
+
+
     result = Math.random() * 100;
     console.log('Calculation result', result);
 
