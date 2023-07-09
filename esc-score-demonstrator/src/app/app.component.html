@@ -7,31 +7,31 @@
   <!-- Setzen der Parameter -->
   <div class="parameterBlock row">
     <h5 class="col-md-12">Set ESG Parameter</h5>
-
     <div class="col-md-3 parameter">
-      <label class="label">Select Parameter 1</label>
-      <select class="form-control" id="option_1" name="dropdown_1" [(ngModel)]="parameter.selectedOption_1"
-       (change)="recalculateValue()">
-          <option *ngFor="let option of options_1" [value]="option">{{ option }}</option>
+      <label class="label">Select Purse Type</label>
+      <select class="form-control" id="purseOption" name="purseOption" [(ngModel)]="selectedPurseType"
+       (change)="changePurseType(selectedPurseType)">
+          <option *ngFor="let option of purseOptions" [value]="option">{{ option }}</option>
       </select>
+    </div>
+    
+    <h5 class="col-md-12 topMargin">Select Component Materials</h5>
+    <div class="col-md-3 parameter" *ngFor="let component of components">
+      <label class="label">Select {{component}} Material</label>
+      <select class="form-control" id="purseOption" name="purseOption" [(ngModel)]="parameter[component]"
+       (change)="recalculateValue()">
+          <option *ngFor="let option of selectableOptions[parameter.selectedPurseType][component] | keyvalue" [value]="option.value">
+            {{ option.key }}</option>
+      </select>
+    </div>
+
+    <h5 class="col-md-12 topMargin">Current Selection ESG Implications</h5>
+    <div class="col-md-2 parameter" *ngFor="let p of parameter | keyvalue" [hidden]="p.key === 'selectedPurseType'">
+      <label class="label">{{p.key}}</label>
+      <span class="value">{{p.value}}</span>
+      
     </div>
   
-    <div class="col-md-3 parameter">
-      <label class="label">Select Parameter 2</label>
-      <select class="form-control" id="option_2" name="dropdown_2" [(ngModel)]="parameter.selectedOption_2"
-      (change)="recalculateValue()">
-          <option *ngFor="let option of options_2" [value]="option">{{ option }}</option>
-      </select>
-    </div>
-
-    <div class="col-md-3 parameter">
-      <label class="label">Select Parameter 3</label>
-      <select class="form-control" id="option_3" name="dropdown_3" [(ngModel)]="parameter.selectedOption_3"
-      (change)="recalculateValue()">
-          <option *ngFor="let option of options_3" [value]="option">{{ option }}</option>
-      </select>
-    </div>
-
   </div>
 
   <hr class="separator">

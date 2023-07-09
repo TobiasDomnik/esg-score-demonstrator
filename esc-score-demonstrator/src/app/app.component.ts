@@ -7,16 +7,62 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   // Selectable options
-  options_1 = ['Type 1', 'Type 2', 'Type 3'];
-  options_2 = ['Object 1', 'Object 2', 'Object 3'];
-  options_3 = ['Value 1', 'Value 2', 'Value 3'];
+  selectableOptions: any = {
+    'Handtasche 1': {
+      'Oberfläche': {
+        'Leder': 1.5,
+        'Plastik': 2.5,
+        'Wolle': 1
+      },
+      'Henkel': {
+        'Leder': 1.5,
+        'Plastik': 2.5,
+        'Wolle': 1
+      },
+      'Interieur': {
+        'Leder': 1.5,
+        'Plastik': 2.5,
+        'Wolle': 1
+      }
+    },
+    'Handtasche 2': {
+      'Oberfläche': {
+        'Leder': 1.5,
+        'Plastik': 2.5,
+        'Wolle': 1
+      },
+      'Henkel': {
+        'Leder': 1.5,
+        'Plastik': 2.5,
+        'Wolle': 1
+      },
+      'Interieur': {
+        'Leder': 1.5,
+        'Plastik': 2.5,
+        'Wolle': 1
+      }
+    },
+    'Bauchtasche': {
+      'Oberfläche': {
+        'Leder': 1.5,
+        'Plastik': 2.5,
+        'Wolle': 1
+      },
+      'Interieur': {
+        'Leder': 1.5,
+        'Plastik': 2.5,
+        'Wolle': 1
+      }
+    }
+  }
+  selectedPurseType = '';
+  purseOptions: string[] = [];
+  components: string[] = [];
+  componentOptions: string[] = [];
+
 
   // Selected options for calculation
-  parameter = {
-    selectedOption_1: 'Type 1',
-    selectedOption_2: 'Object 3',
-    selectedOption_3: 'Value 2'
-  }; 
+  parameter: any = {}; 
 
   // Gauge options
   gauge = {
@@ -39,6 +85,18 @@ export class AppComponent implements OnInit {
   constructor () {}
 
   ngOnInit(): void {
+    this.purseOptions = Object.keys(this.selectableOptions);
+    this.changePurseType(this.purseOptions[0]);
+  }
+
+  changePurseType(option: String) {
+    this.parameter = {
+      'selectedPurseType': option
+    }; 
+    this.components = Object.keys(this.selectableOptions[this.parameter.selectedPurseType])
+    this.components.forEach(component => {
+      this.parameter[component] = '';
+    })
     this.recalculateValue();
   }
 

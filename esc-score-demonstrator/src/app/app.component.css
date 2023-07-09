@@ -28,8 +28,17 @@
     margin-top: 1em;
 }
 
+
+.topMargin {
+    margin-top: 2em;
+}
+
 .label {
     margin-bottom: 0.5em;
+}
+
+.value {
+    display: block;
 }
 
 .separator {
@@ -40,6 +49,4 @@
 .resultsBlock {
     margin-top: 3em;
 }
-
-
 
